@@ -8,11 +8,14 @@ const postByTitle = (title) => {
 }
 
 const postsForAuthor = (authorId) => {
-  return Post.find().populate({
-    path: "author",
-    match: {
-      _id: authorId
-    }
+  // return Post.find().populate({
+  //   path: "author",
+  //   match: {
+  //     _id: authorId
+  //   }
+  // }).exec()
+  return Post.find({
+    author: authorId,
   }).exec()
 }
 
